@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+ border: dotted 3px rgb(152, 222, 235)
+}
+.activeRow {
+  border: dotted 2px rgb(60, 186, 245);
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
