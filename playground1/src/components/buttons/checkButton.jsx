@@ -1,6 +1,7 @@
 import { useAppContext } from "../context/context"
 import { getHints } from "../initGame/initGames"
 import { checkRow } from "../reducer/action"
+import { FaCheck } from "react-icons/fa";
 
 export default function CheckButton() {
 
@@ -11,8 +12,8 @@ export default function CheckButton() {
         dispatch(checkRow(hints))
     }
   return (
-    <button disabled={!isRowComplete} onClick={onCheck} className="bg-red-100 cursor-pointer h-full w-full rounded-xl">
-      check
+    <button disabled={!isRowComplete} onClick={onCheck} className="text-9xl text-blue-500 cursor-pointer h-full w-full rounded-xl flex justify-center items-center">
+      <FaCheck className="border border-blue-500 bg-blue-100 p-2 rounded-full shadow-xl shadow-blue-600 "/>
     </button>
   )
 }

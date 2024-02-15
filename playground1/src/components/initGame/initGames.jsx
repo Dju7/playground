@@ -1,6 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
 import { colors, tries } from "../colorChoice/colorChoice";
 
+// Function to shuffle an array using Fisher-Yates algorithm
+const shuffleArray = (array) => {
+  const newArray = [...array];  // Create a copy of the original array
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+
 export const InitGame = () => ({
   currentRow: 0,
   currentColor: colors[0],
@@ -8,9 +19,8 @@ export const InitGame = () => ({
   rows: new Array(tries).fill().map(_ => ['', '', '', '', '', '', '', '']),
   // eslint-disable-next-line no-unused-vars
   hints: new Array(tries).fill().map(_ => ([{ correctPlace: 0, correctColor: 0 }])),
-  // eslint-disable-next-line no-unused-vars
-  secret: Array.from({ length: 8 }, () => colors[Math.floor(Math.random() * colors.length)])
-  
+  // Shuffle the colors array and take the first 8 elements
+  secret: shuffleArray(colors).slice(0, 8),
 });
 
 export const getHints = (secret, row) => {
@@ -36,8 +46,9 @@ export const getHints = (secret, row) => {
       const j = rowCopy.indexOf(secretCopy[i]);
       if (j !== -1 && !checkedColorIndices.includes(i)) {
         hints.correctColor++;
-        checkedColorIndices.push(i);
+        checkedColorIndices.push(j);
       }
+      
     }
   }
 

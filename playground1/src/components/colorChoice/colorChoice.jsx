@@ -13,7 +13,7 @@ export default function ColorChoice() {
 const [appState, dispatch] = useAppContext()
 
   return (
-    <div className='grid grid-cols-2 gap-6 h-[80%] w-[60%] justify-center items-center '>
+    <div className='grid grid-cols-2 gap-6 h-[80%] w-[50%] justify-center items-center '>
         {
             colors.map((color) => (
               
