@@ -20,6 +20,8 @@ export const InitGame = () => ({
   hints: new Array(tries).fill().map(_ => ([{ correctPlace: 0, correctColor: 0 }])),
   // Shuffle the colors array and take the first 8 elements
   secret: shuffleArray(colors).slice(0, 8),
+  maxRows : 14,
+  
 });
 
 export const getHints = (secret, row) => {
@@ -27,6 +29,7 @@ export const getHints = (secret, row) => {
   console.log('code', secret);
   const rowCopy = [...row];
   const hints = { correctPlace: 0, correctColor: 0 };
+  
 
   // Check for correct color and position
   const checkedPlaceIndices = [];
@@ -54,18 +57,28 @@ export const getHints = (secret, row) => {
   return [hints];
 };
 
-export const checkGameState = (hints, row,) => {
+
+
+export const checkGameState = (hints, row) => {
   if (row === -1) {
-    return '';
+    return ''; // état initial
+  }
+  console.log('rox', row)
+  if (row === row.length - 1) {
+    
+    alert("Désolé, vous n'avez pas trouvé le code caché !")
+    window.location.reload();
+    
+    return 'lost'; // Le joueur a atteint le dernier row sans trouver la combinaison
+    
+  }
+  
+  const correctPlaceCount = hints[row][0].correctPlace;
+
+  if (correctPlaceCount === 8) {
+    alert("Bravo, vous avez gagné")
+    return 'won'; // Le joueur a trouvé la combinaison
   }
 
-  if (row > 2) {
-    return 'lost';
-  }
-
-  if (hints.correctPlace === 8) {
-    return 'won';
-  }
-
-  return 'lost';
+  return ''; // Le jeu continue, aucun état gagnant ou perdant n'est encore atteint
 };

@@ -11,7 +11,6 @@ const GameEnds = () => {
   if (appState.gameState === 'won') {
     return (
       <div>
-        <div className='text-3xl font-bold mb-4'>Congratulations! You found the code:</div>
         {appState.secret.map((x, i) => <Pion key={i} color={x} />)}
       </div>
     );
