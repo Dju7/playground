@@ -11,7 +11,6 @@ const shuffleArray = (array) => {
   return newArray;
 };
 
-
 export const InitGame = () => ({
   currentRow: 0,
   currentColor: colors[0],
@@ -55,3 +54,18 @@ export const getHints = (secret, row) => {
   return [hints];
 };
 
+export const checkGameState = (hints, row,) => {
+  if (row === -1) {
+    return '';
+  }
+
+  if (row > 2) {
+    return 'lost';
+  }
+
+  if (hints.correctPlace === 8) {
+    return 'won';
+  }
+
+  return 'lost';
+};

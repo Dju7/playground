@@ -6,7 +6,8 @@
  border: dotted 3px rgb(152, 222, 235)
 }
 .activeRow {
-  border: dotted 2px rgb(60, 186, 245);
+  border: dashed 2px rgb(66, 172, 63);
+  
 }
 
 body {

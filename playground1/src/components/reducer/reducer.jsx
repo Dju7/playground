@@ -1,4 +1,5 @@
 import actionTypes from "./actionTypes"
+import { InitGame } from "../initGame/initGames"
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -25,6 +26,12 @@ export const reducer = (state, action) => {
                 ...state,
                 currentRow: state.currentRow + 1,
                 hints
+            }
+        } 
+
+        case actionTypes.NEW_GAME : {
+            return {
+                ...InitGame()
             }
         } 
 

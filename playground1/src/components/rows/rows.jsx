@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 import Pion from "../pion/pions";
 import { useAppContext } from "../context/context";
 import { setSlot } from "../reducer/action";
@@ -13,8 +12,6 @@ function Rows() {
   const [appState, dispatch] = useAppContext()
   const {rows, hints, currentRow} = appState
 
- 
-
   const onClick = (col) => {
     dispatch(setSlot(col))
     };
@@ -22,9 +19,9 @@ function Rows() {
   
     return (
       <div className="w-full h-full flex flex-col gap-4 justify-center items-center">
-        {new Array(12).fill().map((x, i) => 
-          <div className={`w-full h-20 flex justify-around ${i === currentRow ? 'activeRow' : ''}`} key={i}>
-            <div className="w-[5%] h-full flex justify-center items-center">
+        {new Array(14).fill().map((x, i) => 
+          <div className={`w-full h-20 flex justify-around items-center ${i === currentRow ? 'activeRow' : ''}`} key={i}>
+            <div className="w-[5%] h-[90%] flex justify-center items-center border border-gray-300 rounded-xl shadow-inner shadow-black/60 text-lg">
               {i + 1}
             </div>
             <div className="w-[75%] h-full flex justify-center items-center gap-12 ">
@@ -40,9 +37,9 @@ function Rows() {
             <div className="w-[20%]">
             
               {hints[i] && Array.isArray(hints[i]) && (
-                <div className="flex gap-4">
+                <div className="flex gap-4 border border-gray-300 rounded-xl">
                   {hints[i].map((hint, index) => (
-                  <div key={index} className="flex justify-end items-center m-2 w-full">
+                  <div key={index} className="flex justify-center items-center m-2 w-full">
                      <span className="text-3xl text-blue-500 w-16 flex"><FaCheck/>{hint.correctPlace}</span>
                     <span className="ml-4 text-3xl text-red-500 w-26 flex"><RxCross2/> {hint.correctColor}</span>
                    </div>
