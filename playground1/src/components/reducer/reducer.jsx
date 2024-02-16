@@ -20,15 +20,16 @@ export const reducer = (state, action) => {
         } 
 
         case actionTypes.CHECK_ROW: {
-            let { currentRow, hints } = state;
+            let { currentRow, hints, rows } = state;
           
             // Ajoutez cette condition pour vérifier si currentRow est inférieur à 14
-            if (currentRow < 14) {
+            if (currentRow < 15) {
               hints[currentRow] = [...action.payload];
           
               // Si currentRow est inférieur à 13, incrémentez currentRow
-              if (currentRow < 13) {
+              if (currentRow < 14) {
                 return {
+                  
                   ...state,
                   currentRow: currentRow + 1,
                   hints,
@@ -40,6 +41,7 @@ export const reducer = (state, action) => {
             // Ne modifiez pas l'état si currentRow est déjà à 14
             return {
               ...state,
+              rows,
               hints,
             };
           }
