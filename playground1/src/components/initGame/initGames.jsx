@@ -47,7 +47,7 @@ export const getHints = (secret, row) => {
   for (let i = 0; i < 8; i++) {
     if (!checkedPlaceIndices.includes(i)) {
       const j = rowCopy.indexOf(secretCopy[i]);
-      if (j !== -1 && !checkedColorIndices.includes(i)) {
+      if (j !== -1 && !checkedColorIndices.includes(j)) {
         hints.correctColor++;
         checkedColorIndices.push(j);
       }

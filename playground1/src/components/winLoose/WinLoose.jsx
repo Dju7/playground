@@ -19,7 +19,7 @@ export default function WinLoose() {
   
     return (
         <>
-            <p className="text-4xl text-red-500 font-bold animate-ping">You lose!</p>
+            <p className="text-4xl text-red-500 font-bold animate-ping">You loose!</p>
             
         </>
     );

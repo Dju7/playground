@@ -22,8 +22,7 @@ const [appState, dispatch] = useAppContext()
                  key={color} 
                  color={color}
                  onClick={() => {
-                  console.log(`Setting color: ${color}`);
-                  dispatch(setColor(color));
+                 dispatch(setColor(color));
                 }}
                  />
                  
