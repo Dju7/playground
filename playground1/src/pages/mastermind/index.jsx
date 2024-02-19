@@ -29,7 +29,7 @@ const [appState, dispatch] = useReducer(reducer, InitGame())
     <div className=" text-black h-screen w-full flex justify-center items-center gap-4 ">
          <section className="h-[45%] w-[10%] flex flex-col justify-between  ">
           <div className="h-[30%] w-full flex justify-center items-center text-9xl text-blue-500"><NewGame/></div>
-          <div className="h-[25%] w-[80%] rounded-2xl flex justify-center items-center border border-black"><WinLoose/></div>
+          <div className="h-[25%] w-[80%] rounded-2xl flex justify-center items-center"><WinLoose/></div>
           <div className="h-[30%] w-full ">
             <CheckButton />
           </div>
@@ -37,7 +37,7 @@ const [appState, dispatch] = useReducer(reducer, InitGame())
          </section>
       <section className="h-[95%] w-[40%] bg-gray-200 flex flex-col items-center gap-4 rounded-2xl border border-black shadow-inner shadow-black/70">
         <h1 className="text-6xl mt-2 text-blue-500">MASTERMIND</h1>
-        <div className=" h-16 w-[80%] flex justify-center items-center bg-gray-400 rounded-xl shadow-lg shadow-black/70">
+        <div className=" h-16 w-[80%] flex justify-center items-center bg-blue-400 rounded-xl shadow-lg shadow-black/50">
             <GameEnds />
         </div>
         <div className=" w-[85%] h-[80%]  mt-6 flex gap-2">

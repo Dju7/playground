@@ -46,6 +46,13 @@ export const reducer = (state, action) => {
             };
           }
 
+          case actionTypes.SET_GAME_STATE : {
+            return {
+                ...state,
+                gameState : action.payload
+            }
+        }
+
         case actionTypes.NEW_GAME : {
             return {
                 ...InitGame()

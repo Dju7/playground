@@ -3,7 +3,7 @@ import { colors, tries } from "../colorChoice/colorChoice";
 
 // Function to shuffle an array using Fisher-Yates algorithm
 const shuffleArray = (array) => {
-  const newArray = [...array];  // Create a copy of the original array
+  const newArray = [...array];  
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
@@ -20,7 +20,7 @@ export const InitGame = () => ({
   hints: new Array(tries).fill().map(_ => ([{ correctPlace: 0, correctColor: 0 }])),
   // Shuffle the colors array and take the first 8 elements
   secret: shuffleArray(colors).slice(0, 8),
-  gameState : ''
+  gameState: ''
   
   
 });
@@ -66,16 +66,12 @@ export const checkGameState = (hints, row) => {
   }
   console.log('row', row)
   if (row === 13) {  
-    console.log('lost') 
-    alert("Dommage, vous avez perdu")
-    return 'lost'
-    
+    return 'lost'  
   }
   
   const correctPlaceCount = hints[row][0].correctPlace;
 
-  if (correctPlaceCount === 8) {
-    console.log('bravo')
+  if (correctPlaceCount === 8) {  
     return 'won'; // Le joueur a trouvé la combinaison
   }
 
